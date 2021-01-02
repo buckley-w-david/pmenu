@@ -11,5 +11,5 @@ idna==2.10                # via requests, tldextract
 requests-file==1.5.1      # via tldextract
 requests==2.25.1          # via requests-file, tldextract
 six==1.15.0               # via requests-file
-tldextract==3.1.0         # via pmenu (setup.py)
+tldextract==3.1.0         # via -r requirements.in
 urllib3==1.26.2           # via requests
