@@ -7,17 +7,17 @@ import tldextract
 
 def fake_pass_base(true_base, url):
     ext = tldextract.extract(url)
-    name = pathlib.Path(true_base, f'{ext.domain}.{ext.suffix}')
-    if name.is_dir():
-        return name
-    elif name.is_file():
-        return name.parent
-    elif ext.subdomain:
-        name = pathlib.Path(true_base, f'{ext.subdomain}.{ext.domain}.{ext.suffix}')
-        if name.is_dir():
-            return name
-        elif name.is_file():
-            return name.parent
+    general_name = pathlib.Path(true_base, f'{ext.domain}.{ext.suffix}')
+    sub_name = pathlib.Path(true_base, f'{ext.subdomain}.{ext.domain}.{ext.suffix}')
+
+    if ext.subdomain and sub_name.is_dir():
+        return str(sub_name)
+    elif ext.subdomain and sub_name.is_file():
+        return str(sub_name.parent)
+    elif general_name.is_dir():
+        return str(general_name)
+    elif general_name.is_file():
+        return str(general_name.parent)
     return true_base
 
 try:
