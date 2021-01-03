@@ -5,6 +5,8 @@ import pathlib
 import subprocess
 import tldextract
 
+from xdg import xdg_data_home
+
 def fake_pass_base(true_base, url):
     ext = tldextract.extract(url)
     general_name = pathlib.Path(true_base, f'{ext.domain}.{ext.suffix}')
@@ -21,7 +23,7 @@ def fake_pass_base(true_base, url):
     return true_base
 
 try:
-    with open('/home/david/Source/TabFS/fs/mnt/tabs/last-focused/url.txt', 'r') as f:
+    with open(xdg_data_home() / 'TabFS/mnt/tabs/last-focused/url.txt', 'r') as f:
         url = f.read()
 except:
     url = ''
