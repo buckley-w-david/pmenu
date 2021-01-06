@@ -8,7 +8,7 @@ import tldextract
 from xdg import xdg_data_home
 
 PASSWORD_STORE_DIR = '/home/david/.password-store'
-LAST_URL_PATH = xdg_data_home() / 'TabFS/tabs/last-focused/url.txt'
+LAST_URL_PATH = pathlib.Path(os.environ.get('TABFS_MOUNT_DIR') or xdg_data_home() / 'TabFS/mnt') / 'tabs/last-focused/url.txt'
 
 def fake_pass_base(url: str) -> str:
     ext = tldextract.extract(url)
@@ -28,7 +28,8 @@ def fake_pass_base(url: str) -> str:
 try:
     with open(LAST_URL_PATH, 'r') as f:
         url = f.read()
-except:
+except Exception as e:
+    print(e)
     url = ''
 
 os.environ['PASSWORD_STORE_DIR'] = fake_pass_base(url)
