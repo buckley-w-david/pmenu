@@ -125,8 +125,8 @@ python-versions = ">=3.6,<4.0"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "ed549935560e31a69fd0f18452f92fe8194a32f9b12b2e198e992cc18dd791ab"
+python-versions = "^3.9"
+content-hash = "e01dc3fbf63e3b85244f6bcb259a64e8a966db0496b2dfec2311a8b580b5bcc9"
 
 [metadata.files]
 certifi = [

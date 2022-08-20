@@ -6,7 +6,7 @@ authors = ["David Buckley <david@davidbuckley.ca>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 tldextract = "^3.3.1"
 xdg = "^5.1.1"
 lz4 = "^4.0.2"
