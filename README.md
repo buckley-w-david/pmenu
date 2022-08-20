@@ -15,3 +15,29 @@ Password Store
     └── UserName  
 
 Since the `recovery.jsonlz4` file is only regenerated every 15 seconds, there can be up to 15 seconds of delay for when switching tabs.
+
+## Native Component Installation
+
+This is a walkthough of how *I* would install it using tools I typically use.
+
+The following tools are required:
+ - [poetry](https://python-poetry.org/docs/master/#installing-with-the-official-installer)
+ - [pipx](https://pypa.github.io/pipx/#install-pipx)
+
+```bash
+$ git clone https://github.com/buckley-w-david/pmenu.git
+$ cd pmenu
+```
+
+You'll need to edit `pmenu/config.py` and `extension/pmenu.json` to replace some file paths with equivalents for your system.
+
+Once that is done, you can continue:
+```bash
+$ poetry build -f wheel
+$ pipx install ./dist/pmenu-*.whl
+$ cp extension/pmenu.json ~/.mozilla/native-messaging-hosts/
+```
+
+## Extension Installation
+
+I haven't put it up on [addons.mozilla.org](https://addons.mozilla.org/) yet, no good way to do this right now.
