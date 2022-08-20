@@ -5,7 +5,6 @@
   window.isConnected = true;
 
   port.onMessage.addListener((response) => {
-    console.log(`Received: ${JSON.stringify(response)}`);
     browser.tabs.sendMessage(
         response.id,
         {
