@@ -1,6 +1,6 @@
 # pmenu
 
-domain aware passmenu wrapper script using [TabFS](https://github.com/osnr/TabFS)
+domain aware passmenu wrapper script for Firefox
 
 My password store is structured like so, and this code assumes that to be the case.
 
