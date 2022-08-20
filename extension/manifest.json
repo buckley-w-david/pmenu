@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "pmenu",
+  "description": "password-store bridge",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/message.svg"
+  },
+
+  "permissions": [
+    "tabs", "nativeMessaging",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "browser_action": {
+    "default_icon": "icons/message.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "david-pmenu@davidbuckley.ca",
+      "strict_min_version": "50.0"
+    }
+  }
+}

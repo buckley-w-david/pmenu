@@ -1,0 +1,7 @@
+{
+  "name": "pmenu",
+  "description": "Example host for native messaging",
+  "path": "/home/david/scripts/pmenu",
+  "type": "stdio",
+  "allowed_extensions": [ "david-pmenu@davidbuckley.ca" ]
+}
