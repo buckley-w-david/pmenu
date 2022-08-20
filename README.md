@@ -13,3 +13,5 @@ Password Store
 │   └── user@example.org  
 └── example.net  
     └── UserName  
+
+Since the `recovery.jsonlz4` file is only regenerated every 15 seconds, there can be up to 15 seconds of delay for when switching tabs.
