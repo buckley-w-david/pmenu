@@ -1,7 +1,7 @@
 {
   "name": "pmenu",
-  "description": "Example host for native messaging",
-  "path": "/home/david/scripts/pmenu",
+  "description": "Interface for local password store",
+  "path": "/home/david/.local/bin/pmenu-messager",
   "type": "stdio",
   "allowed_extensions": ["david-pmenu@davidbuckley.ca"]
 }
