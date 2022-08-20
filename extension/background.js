@@ -27,7 +27,6 @@
             id: tab.id,
             url: tab.url,
           }
-          console.log("Sending: " + tab.url);
           port.postMessage(message);
       }, console.error)
   });
