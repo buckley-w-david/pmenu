@@ -38,6 +38,7 @@ def main():
             continue
 
         url = message["url"]
+        # FIXME: passmenu2 is a script I have just laying around, it should live in this repo
         result = subprocess.run(['passmenu2'],
             env={ **os.environ, 'PASSWORD_STORE_DIR': utils.fake_pass_base(url) },
             capture_output=True
