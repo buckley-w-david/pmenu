@@ -8,10 +8,7 @@
     "48": "icons/message.svg"
   },
 
-  "permissions": [
-    "tabs", "nativeMessaging",
-    "<all_urls>"
-  ],
+  "permissions": ["tabs", "nativeMessaging", "<all_urls>"],
 
   "background": {
     "scripts": ["background.js"],
