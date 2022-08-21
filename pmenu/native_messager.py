@@ -51,8 +51,4 @@ def main():
         print(e, file=sys.stderr)
         username, password = "", ""
 
-    send_message(
-        encode_message(
-            {"username": username, "password": password}
-        )
-    )
+    send_message(encode_message({"username": username, "password": password}))
