@@ -66,10 +66,8 @@ class BinFileArg:
             return open(arg, self._mode + "b")
         except OSError as e:
             raise argparse.ArgumentTypeError(
-                "failed to open file for %s: %s" % (
-                    "reading" if self._mode == "r" else "writing",
-                    e
-                )
+                "failed to open file for %s: %s"
+                % ("reading" if self._mode == "r" else "writing", e)
             )
 
 
@@ -86,27 +84,27 @@ def compress(file_obj):
 
 
 def get_argparser():
-    p = argparse.ArgumentParser(
-        description="MozLz4a compression/decompression utility"
-    )
+    p = argparse.ArgumentParser(description="MozLz4a compression/decompression utility")
 
     p.add_argument(
-        "-d", "--decompress", "--uncompress",
+        "-d",
+        "--decompress",
+        "--uncompress",
         action="store_true",
-        help="Decompress the input file instead of compressing it."
+        help="Decompress the input file instead of compressing it.",
     )
 
     p.add_argument(
         "in_file",
         type=BinFileArg("r"),
-        help="Path to input file. `-' means standard input."
+        help="Path to input file. `-' means standard input.",
     )
     p.add_argument(
         "out_file",
         type=BinFileArg("w"),
         nargs="?",
         default="-",
-        help="Path to output file. `-' means standard output (and is the default)."
+        help="Path to output file. `-' means standard output (and is the default).",
     )
 
     return p
@@ -123,11 +121,8 @@ def main():
                 data = compress(fh)
     except Exception as e:
         print(
-            "Could not compress/decompress file `%s': %s" % (
-                args.in_file.name,
-                e
-            ),
-            file=sys.stderr
+            "Could not compress/decompress file `%s': %s" % (args.in_file.name, e),
+            file=sys.stderr,
         )
         sys.exit(4)
 
@@ -136,11 +131,8 @@ def main():
             fh.write(data)
     except Exception as e:
         print(
-            "Could not write to output file `%s': %s" % (
-                args.out_file.name,
-                e
-            ),
-            file=sys.stderr
+            "Could not write to output file `%s': %s" % (args.out_file.name, e),
+            file=sys.stderr,
         )
         sys.exit(5)
 

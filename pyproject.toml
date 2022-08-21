@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pmenu"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["David Buckley <david@davidbuckley.ca>"]
 license = "MIT"
@@ -12,9 +12,9 @@ xdg = "^5.1.1"
 lz4 = "^4.0.2"
 
 [tool.poetry.dev-dependencies]
+black = "^22.6.0"
 
 [tool.poetry.scripts]
-pmenu = "pmenu.main:main"
 pmenu-messager = "pmenu.native_messager:main"
 
 [build-system]
