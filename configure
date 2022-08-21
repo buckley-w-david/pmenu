@@ -1,10 +1,5 @@
 #!/usr/bin/sh
 
-TARGET=`realpath ${PASSWORD_STORE_DIR-~/.password-store}`
-
-sed -i '$ d' pmenu/config.py
-echo "PASSWORD_STORE_DIR = Path(\"$TARGET\")" >> pmenu/config.py
-
 cat > extension/pmenu.json <<END_HEREDOC
 {
   "name": "pmenu",
