@@ -46,9 +46,9 @@ def main():
         url = message["url"]
 
         try:
-            # FIXME: passmenu2 is a script I have just laying around, it should live in this repo
+            # TODO: I should probably port this functionality into the package itself
             result = subprocess.run(
-                ["passmenu2"],
+                ["pmenu-passmenu"],
                 env={**os.environ, "PASSWORD_STORE_DIR": utils.fake_pass_base(url)},
                 capture_output=True,
             )
