@@ -14,8 +14,6 @@ Password Store
 └── example.net  
     └── UserName  
 
-Since the `recovery.jsonlz4` file is only regenerated every 15 seconds, there can be up to 15 seconds of delay for when switching tabs.
-
 ## Native Component Installation
 
 This is a walkthough of how *I* would install it using tools I typically use.
