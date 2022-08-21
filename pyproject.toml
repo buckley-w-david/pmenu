@@ -8,8 +8,6 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.9"
 tldextract = "^3.3.1"
-xdg = "^5.1.1"
-lz4 = "^4.0.2"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
