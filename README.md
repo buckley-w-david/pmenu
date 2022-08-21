@@ -1,6 +1,6 @@
 # pmenu
 
-domain aware passmenu wrapper script for Firefox
+domain aware passmenu-like Firefox extension for [password-store](https://www.passwordstore.org/).
 
 My password store is structured like so, and this code assumes that to be the case.
 
@@ -16,7 +16,7 @@ Password Store
 
 ## Native Component Installation
 
-The following tools are required:
+The following tools are required to build/install:
  - [poetry](https://python-poetry.org/docs/master/#installing-with-the-official-installer)
  - [pipx](https://pypa.github.io/pipx/#install-pipx)
  - [web-ext](https://github.com/mozilla/web-ext)
@@ -30,3 +30,5 @@ $ make install
 ## Extension Installation
 
 I haven't put it up on [addons.mozilla.org](https://addons.mozilla.org/) yet, which means you'll have to be running a Firefox distribution that allows installing unsigned extensions (Like developer edition).
+
+If you are, simply drag/drop file generated from `make build` in the `web-ext-artifacts` directory into Firefox.
