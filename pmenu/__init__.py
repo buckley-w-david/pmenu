@@ -1,1 +1,1 @@
-from pmenu.main import main
+from pmenu.native_messager import main
