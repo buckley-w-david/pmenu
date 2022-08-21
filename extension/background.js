@@ -1,29 +1,16 @@
-(() => {
-  if (window.isConnected) return;
+const onError = error => console.error(error);
 
-  let port = chrome.runtime.connectNative("pmenu");
-  window.isConnected = true;
-
-  port.onMessage.addListener((response) => {
-    browser.tabs.sendMessage(response.id, {
-      username: response.username,
-      password: response.password,
-    });
-  });
-
-  port.onDisconnect.addListener((p) => {
-    window.isConnected = false;
-    console.log("disconnect", p);
-  });
-
-  browser.browserAction.onClicked.addListener(() => {
-    browser.tabs.query({ currentWindow: true, active: true }).then((tabs) => {
-      let tab = tabs[0]; // Safe to assume there will only be one result
-      message = {
-        id: tab.id,
-        url: tab.url,
-      };
-      port.postMessage(message);
-    }, console.error);
-  });
-})();
+browser.browserAction.onClicked.addListener(() => {
+  browser.tabs.query({ currentWindow: true, active: true }).then((tabs) => {
+    let tab = tabs[0]; // Safe to assume there will only be one result
+    browser.runtime.sendNativeMessage(
+      "pmenu",
+      tab.url,
+    ).then((response) => {
+      browser.tabs.sendMessage(tab.id, {
+        username: response.username,
+        password: response.password,
+      });
+    }, onError);
+  }, onError);
+});

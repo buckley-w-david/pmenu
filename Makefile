@@ -1,4 +1,4 @@
-.PHONY: all build install format
+.PHONY: all build install format clean
 
 all: build
 
@@ -14,3 +14,6 @@ install:
 format:
 	poetry run black pmenu
 	prettier --write extension
+
+clean:
+	rm -rf dist web-ext-artifacts/

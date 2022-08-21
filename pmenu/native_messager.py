@@ -36,29 +36,23 @@ def send_message(encoded_message):
 
 
 def main():
-    while True:
-        try:
-            message = get_message()
-        except Exception as e:
-            print(e, file=sys.stderr)
-            continue
+    try:
+        url = get_message()
 
-        url = message["url"]
-
-        try:
-            # TODO: I should probably port this functionality into the package itself
-            result = subprocess.run(
-                ["pmenu-passmenu"],
-                env={**os.environ, "PASSWORD_STORE_DIR": utils.fake_pass_base(url)},
-                capture_output=True,
-            )
-            output = result.stdout.decode().strip()
-            username, password, *_ = output.split("\n")
-        except:
-            username, password = "", ""
-
-        send_message(
-            encode_message(
-                {"username": username, "password": password, "id": message["id"]}
-            )
+        # TODO: I should probably port this functionality into the package itself
+        result = subprocess.run(
+            ["pmenu-passmenu"],
+            env={**os.environ, "PASSWORD_STORE_DIR": utils.fake_pass_base(url)},
+            capture_output=True,
         )
+        output = result.stdout.decode().strip()
+        username, password, *_ = output.split("\n")
+    except:
+        print(e, file=sys.stderr)
+        username, password = "", ""
+
+    send_message(
+        encode_message(
+            {"username": username, "password": password}
+        )
+    )
