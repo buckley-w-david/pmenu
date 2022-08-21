@@ -8,8 +8,8 @@ build:
 
 install:
 	ls ./dist/pmenu-*.whl | sort | tail -n 1 | xargs pipx install
-	cp extension/pmenu.json ~/.mozilla/native-messaging-hosts/
-	cp scripts/* ~/.local/bin/
+	cp extension/pmenu.json ${HOME}/.mozilla/native-messaging-hosts/
+	cp scripts/* ${HOME}/.local/bin/
 
 format:
 	poetry run black pmenu
