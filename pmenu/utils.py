@@ -1,11 +1,10 @@
-import pathlib
-import tldextract
+from tldextract.tldextract import extract
 
 from pmenu.config import PASSWORD_STORE_DIR
 
 
 def fake_pass_base(url: str) -> str:
-    ext = tldextract.extract(url)
+    ext = extract(url)
     general_name = PASSWORD_STORE_DIR / f"{ext.domain}.{ext.suffix}"
     sub_name = PASSWORD_STORE_DIR / f"{ext.subdomain}.{ext.domain}.{ext.suffix}"
 

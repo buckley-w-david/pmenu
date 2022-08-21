@@ -47,7 +47,7 @@ def main():
         )
         output = result.stdout.decode().strip()
         username, password, *_ = output.split("\n")
-    except:
+    except Exception as e:
         print(e, file=sys.stderr)
         username, password = "", ""
 
